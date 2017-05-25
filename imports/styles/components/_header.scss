@@ -1,0 +1,17 @@
+.header {
+  background: $header-bg;
+  margin-bottom: 20px;
+  @at-root {
+    #{&}__container {
+      display: flex;
+      justify-content: space-between;
+      align-content: center;
+      padding: $space;
+      margin: 0 auto;
+      max-width: $site-max-width;
+    }
+    #{&}__brand {
+      color: white;
+    }
+  }
+}

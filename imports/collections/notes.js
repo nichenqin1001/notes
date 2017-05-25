@@ -11,7 +11,7 @@ Meteor.methods({
       title: '',
       body: '',
       ownerId: this.userId,
-      updatedAt: moment().valueOf()
+      createdAt: moment().valueOf()
     });
   }
 });

@@ -1,17 +1,25 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { createContainer } from 'meteor/react-meteor-data';
 // collections
 import { Notes } from '../../../imports/collections/notes';
+// components
+import AddNote from './AddNote';
 
 class NoteList extends Component {
   render() {
     return (
       <div>
-        NoteList
+        <AddNote />
+        {this.props.notes.length}
       </div>
     );
   }
 }
+
+NoteList.propTypes = {
+  notes: PropTypes.array.isRequired
+};
 
 NoteList = createContainer(() => {
   Meteor.subscribe('notes');

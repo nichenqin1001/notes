@@ -1,0 +1,40 @@
+.button {
+  background-color: $button-bg;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: $base-font-size;
+  line-height: 1.2;
+  padding: 1rem;
+  text-transform: uppercase;
+  transition: all .2s ease;
+  @at-root {
+    #{&}__basic {
+      background-color: transparent;
+      border: 1px solid $button-basic-color;
+      color: $button-basic-color;
+      padding: 0.3rem 0.8rem;
+      &:hover {
+        background-color: $button-bg;
+        color: white;
+      }
+    }
+    #{&}__secondary {
+      background-color: $button-secondary-color;
+      border: 1px solid #ddd;
+      color: #777;
+    }
+    #{&}__link {
+      display: inline-block;
+      text-decoration: none;
+      @at-root {
+        #{&}-text {
+          background: none;
+          margin: 0;
+          padding: 0;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
