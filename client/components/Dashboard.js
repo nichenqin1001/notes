@@ -16,7 +16,6 @@ class Dashboard extends Component {
         <div className="page">
           <Route exact path={`${match.path}`} component={NoteList} />
           <Route exact path={`${match.path}/:id`} component={NoteDetail} />
-          <Route path={`${match.path}/:id/edit`} component={NoteEditor} />
         </div>
       </div>
     );
