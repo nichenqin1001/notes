@@ -11,7 +11,7 @@ class AddNote extends Component {
         <button
           onClick={this.addNote.bind(this)}
           className="button">添加笔记</button>
-      </div>
+      </div >
     );
   }
 }

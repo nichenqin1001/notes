@@ -23,7 +23,7 @@ NoteList.propTypes = {
 
 NoteList = createContainer(() => {
   Meteor.subscribe('notes');
-  const notes = Notes.find({}).fetch();
+  const notes = Notes.find().fetch();
   return { notes };
 }, NoteList);
 
