@@ -23,7 +23,7 @@ class NoteEditor extends Component {
 }
 
 NoteEditor.propTypes = {
-  note: PropTypes.object,
+  note: PropTypes.object.isRequired,
   loading: PropTypes.bool.isRequired,
   noteExists: PropTypes.bool.isRequired
 };
@@ -33,7 +33,7 @@ NoteEditor = createContainer((props) => {
   const loading = !noteHanle.ready();
   const note = Notes.findOne({ _id: props.match.params.id });
   const noteExists = !loading && !!note;
-  return { note, loading, noteExists };
+  return { note: note || {}, loading, noteExists };
 }, NoteEditor);
 
 export default NoteEditor;
