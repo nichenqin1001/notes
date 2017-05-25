@@ -6,14 +6,18 @@ import { Notes } from '../../../imports/collections/notes';
 // components
 import AddNote from './AddNote';
 import NoteListItem from './NoteListItem';
+import NoteListEmptyItem from './NoteListEmptyItem';
+import Loader from '../Common/Loader';
 
 class NoteList extends Component {
   render() {
-    const { notes } = this.props;
+    const { loading, notes } = this.props;
     return (
       <div>
         <AddNote />
-        <h1>笔记列表</h1>
+        {!notes.length && !loading && <NoteListEmptyItem />}
+        {loading && <Loader />}
+        {notes.length > 0 && !loading && <h1>笔记列表</h1>}
         {notes.map(note => <NoteListItem key={note._id} note={note} />)}
       </div>
     );
@@ -25,9 +29,10 @@ NoteList.propTypes = {
 };
 
 NoteList = createContainer(() => {
-  Meteor.subscribe('notes');
+  const noteHandle = Meteor.subscribe('notes');
+  const loading = !noteHandle.ready();
   const notes = Notes.find().fetch();
-  return { notes };
+  return { loading, notes };
 }, NoteList);
 
 export default NoteList;
