@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Route, withRouter } from 'react-router-dom';
 import { createContainer } from 'meteor/react-meteor-data';
 // collections
 import { Notes } from '../../../imports/collections/notes';
@@ -8,10 +9,11 @@ import AddNote from './AddNote';
 import NoteListItem from './NoteListItem';
 import NoteListEmptyItem from './NoteListEmptyItem';
 import Loader from '../Common/Loader';
+import NoteDetail from './NoteDetail';
 
 class NoteList extends Component {
   render() {
-    const { loading, notes, noteExists } = this.props;
+    const { loading, notes, noteExists, match } = this.props;
     return (
       <div>
         <AddNote />
@@ -19,6 +21,7 @@ class NoteList extends Component {
         {loading && <Loader />}
         {noteExists && !loading && <h1>笔记列表</h1>}
         {notes.map(note => <NoteListItem key={note._id} note={note} />)}
+        <Route path={`${match.path}/:id`} component={NoteDetail} />
       </div>
     );
   }
@@ -38,5 +41,7 @@ NoteList = createContainer(() => {
   const notes = noteExists ? Notes.find().fetch() : [];
   return { loading, noteExists, notes };
 }, NoteList);
+
+NoteList = withRouter(NoteList);
 
 export default NoteList;
