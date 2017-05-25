@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Route, withRouter } from 'react-router-dom';
 import { createContainer } from 'meteor/react-meteor-data';
+// routes
+import { Route, withRouter } from 'react-router-dom';
+import { requireAuth } from '../../routes/routesGuard';
 // collections
 import { Notes } from '../../../imports/collections/notes';
 // components
@@ -21,7 +23,7 @@ class NoteList extends Component {
         {loading && <Loader />}
         {noteExists && !loading && <h1>笔记列表</h1>}
         {notes.map(note => <NoteListItem key={note._id} note={note} />)}
-        <Route path={`${match.path}/:id`} component={NoteDetail} />
+        <Route path={`${match.path}/:id`} component={requireAuth(NoteDetail)} />
       </div>
     );
   }
