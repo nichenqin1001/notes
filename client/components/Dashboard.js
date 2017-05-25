@@ -11,7 +11,8 @@ class Dashboard extends Component {
         <div className="page">
           <NoteList />
         </div>
-      </div>);
+      </div>
+    );
   }
 }
 

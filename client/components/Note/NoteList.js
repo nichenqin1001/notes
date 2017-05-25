@@ -12,18 +12,23 @@ import NoteListItem from './NoteListItem';
 import NoteListEmptyItem from './NoteListEmptyItem';
 import Loader from '../Common/Loader';
 import NoteDetail from './NoteDetail';
+import NoteEditor from './NoteEditor';
 
 class NoteList extends Component {
   render() {
     const { loading, notes, noteExists, match } = this.props;
+
+    if (loading) return <Loader />;
+
+    if (!noteExists && !loading) return <NoteListEmptyItem />;
+
     return (
       <div>
         <AddNote />
-        {!noteExists && !loading && <NoteListEmptyItem />}
-        {loading && <Loader />}
-        {noteExists && !loading && <h1>笔记列表</h1>}
+        <h1>笔记列表</h1>
         {notes.map(note => <NoteListItem key={note._id} note={note} />)}
-        <Route path={`${match.path}/:id`} component={requireAuth(NoteDetail)} />
+        <Route exact path={`${match.path}/:id`} component={requireAuth(NoteDetail)} />
+        <Route exact path={`${match.path}/:id/edit`} component={requireAuth(NoteEditor)} />
       </div>
     );
   }
