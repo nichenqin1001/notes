@@ -1,17 +1,31 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { createContainer } from 'meteor/react-meteor-data';
 // collections
 import { Notes } from '../../../imports/collections/notes';
+// components
+import NoteEditor from './NoteEditor';
+import Loader from '../Common/Loader';
 
 class NoteDetail extends Component {
   render() {
+    const { note, history, noteExists } = this.props;
+
+    if (!noteExists) return <Loader />;
+
     return (
       <div>
-        Note Detail
+        <button onClick={() => history.goBack()} className="button">返回</button>
+        <p>{note.title || '没有标题'}</p>
+        <NoteEditor note={note} />
       </div>
     );
   }
 }
+
+NoteDetail.propTypes = {
+  note: PropTypes.object
+};
 
 NoteDetail = createContainer((props) => {
   const noteHandle = Meteor.subscribe('notes');

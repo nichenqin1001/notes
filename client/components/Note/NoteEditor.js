@@ -1,39 +1,25 @@
 import React, { Component } from 'react';
-import { createContainer } from 'meteor/react-meteor-data';
-import PropTypes from 'prop-types';
-// collections
-import { Notes } from '../../../imports/collections/notes';
-// components
-import Loader from '../Common/Loader';
 
 class NoteEditor extends Component {
+  deleteNote() {
+    Meteor.call('notes.remove', this.props.note);
+  }
+
+  handleTitleEdit(e) {
+    Meteor.call('notes.update', this.props.note._id, {
+      title: e.target.value
+    });
+  }
+
   render() {
-    const { loading, noteExists, note } = this.props;
-
-    if (loading) return <Loader />;
-
-    if (!noteExists) return <div>没有找到笔记</div>;
 
     return (
       <div>
-        {note.createdAt}
+        <input type="text" value={this.props.note.title} onChange={this.handleTitleEdit.bind(this)} />
+        <button onClick={this.deleteNote.bind(this)}>Delete Note</button>
       </div>
     );
   }
 }
-
-NoteEditor.propTypes = {
-  note: PropTypes.object.isRequired,
-  loading: PropTypes.bool.isRequired,
-  noteExists: PropTypes.bool.isRequired
-};
-
-NoteEditor = createContainer((props) => {
-  const noteHanle = Meteor.subscribe('notes');
-  const loading = !noteHanle.ready();
-  const note = Notes.findOne({ _id: props.match.params.id });
-  const noteExists = !loading && !!note;
-  return { note: note || {}, loading, noteExists };
-}, NoteEditor);
 
 export default NoteEditor;

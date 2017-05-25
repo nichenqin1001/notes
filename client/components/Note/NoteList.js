@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { createContainer } from 'meteor/react-meteor-data';
 // routes
-import { Route, withRouter } from 'react-router-dom';
-import { requireAuth } from '../../routes/routesGuard';
+import { withRouter } from 'react-router-dom';
 // collections
 import { Notes } from '../../../imports/collections/notes';
 // components
@@ -11,24 +10,25 @@ import AddNote from './AddNote';
 import NoteListItem from './NoteListItem';
 import NoteListEmptyItem from './NoteListEmptyItem';
 import Loader from '../Common/Loader';
-import NoteDetail from './NoteDetail';
-import NoteEditor from './NoteEditor';
 
 class NoteList extends Component {
   render() {
-    const { loading, notes, noteExists, match } = this.props;
+    const { loading, notes, noteExists } = this.props;
 
     if (loading) return <Loader />;
 
-    if (!noteExists && !loading) return <NoteListEmptyItem />;
+    if (!noteExists && !loading) return (
+      <div>
+        <AddNote />
+        <NoteListEmptyItem />
+      </div>
+    );
 
     return (
       <div>
         <AddNote />
         <h1>笔记列表</h1>
         {notes.map(note => <NoteListItem key={note._id} note={note} />)}
-        <Route exact path={`${match.path}/:id`} component={requireAuth(NoteDetail)} />
-        <Route exact path={`${match.path}/:id/edit`} component={requireAuth(NoteEditor)} />
       </div>
     );
   }
