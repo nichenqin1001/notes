@@ -22,20 +22,16 @@ class Signin extends Component {
 
   render() {
     return (
-      <div>
-        <h1>登录</h1>
-        <form onSubmit={this.handleSubmit.bind(this)}>
-          <label>
-            电子邮箱:
-            <input type="email" name="email" />
-          </label>
-          <label>
-            密码：
-            <input type="password" name="password" />
-          </label>
-          <button type="submit">登录</button>
-        </form>
-        <Link to="/signup">注册新账号</Link>
+      <div className="box">
+        <div className="box__box">
+          <h1 className="box__header">登录</h1>
+          <form className="box__form" onSubmit={this.handleSubmit.bind(this)} noValidate>
+            <input type="email" name="email" placeholder="电子邮件" />
+            <input type="password" name="password" placeholder="密码" />
+            <button className="button">点击登录</button>
+          </form>
+          <Link to="/signup">还没有账号？点击注册</Link>
+        </div>
       </div>
     );
   }
