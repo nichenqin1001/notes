@@ -11,13 +11,13 @@ import Loader from '../Common/Loader';
 
 class NoteList extends Component {
   render() {
-    const { loading, notes } = this.props;
+    const { loading, notes, noteExists } = this.props;
     return (
       <div>
         <AddNote />
-        {!notes.length && !loading && <NoteListEmptyItem />}
+        {!noteExists && !loading && <NoteListEmptyItem />}
         {loading && <Loader />}
-        {notes.length > 0 && !loading && <h1>笔记列表</h1>}
+        {noteExists && !loading && <h1>笔记列表</h1>}
         {notes.map(note => <NoteListItem key={note._id} note={note} />)}
       </div>
     );
@@ -25,14 +25,18 @@ class NoteList extends Component {
 }
 
 NoteList.propTypes = {
-  notes: PropTypes.array.isRequired
+  notes: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired,
+  noteExists: PropTypes.bool.isRequired
 };
 
 NoteList = createContainer(() => {
   const noteHandle = Meteor.subscribe('notes');
   const loading = !noteHandle.ready();
-  const notes = Notes.find().fetch();
-  return { loading, notes };
+  const note = Notes.findOne();
+  const noteExists = !loading && !!note;
+  const notes = noteExists ? Notes.find().fetch() : [];
+  return { loading, noteExists, notes };
 }, NoteList);
 
 export default NoteList;
