@@ -1,0 +1,11 @@
+.label {
+  display: inline-block;
+  line-height: 1;
+  background-color: $label-bg;
+  color: $label-color;
+  font-weight: $label-font-weight;
+  border: 1px solid transparent;
+  transition: background .1s ease;
+  padding: .5rem .8rem;
+  border-radius: $label-radius;
+}

@@ -9,7 +9,7 @@ class NoteListItem extends Component {
     return (
       <div className="card">
         <h3 className="card__header">{note.title || '未命名笔记'}</h3>
-        <p>{moment(note.createAt).format('YYYY-MM-DD')}</p>
+        <p className="label">创建日期： {moment(note.createAt).format('YYYY-MM-DD')}</p>
         <p>{note.body || '没有内容'} </p>
         <Link className="button" to={`${match.path}/${note._id}`}>查看详情</Link>
         <button className="button button__secondary" onClick={() => Meteor.call('notes.remove', note)}>删除笔记</button>

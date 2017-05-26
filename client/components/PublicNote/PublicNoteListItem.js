@@ -10,10 +10,8 @@ class PublicNoteListItem extends Component {
     return (
       <div className="card">
         <Link to={`${match.path}/${note._id}`} >
-          <h3 className="card__header">
-            {note.title || '未命名笔记'}
-          </h3>
-          <p> {moment(note.createAt).format('YYYY-MM-DD')}</p>
+          <h3 className="card__header">{note.title || '未命名笔记'}</h3>
+          <p className="label">创建时间： {moment(note.createAt).format('YYYY-MM-DD')}</p>
           <p> {note.body || '没有内容'}</p>
         </Link>
       </div>);
