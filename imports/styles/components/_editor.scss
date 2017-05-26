@@ -4,5 +4,26 @@
   padding: $space*2 $space;
   margin: $space;
   flex: 1;
-  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+  width: 100%;
+  @at-root {
+    #{&}__title {
+      border: none;
+      border-bottom: 2px solid $gray;
+      font-size: 2rem;
+      margin-bottom: 2*$space;
+      outline: none;
+      padding: .8rem .5rem;
+    }
+    #{&}__content {
+      flex-grow: 1;
+      font-weight: 300;
+      outline: none;
+      padding: .8rem .5rem;
+      resize: none;
+      margin-bottom: 20px;
+    }
+  }
 }

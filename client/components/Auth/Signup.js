@@ -30,7 +30,7 @@ class Signup extends Component {
             <input type="password" name="password" placeholder="密码" />
             <button className="button">创建账号</button>
           </form>
-          <Link to="/">已经有账号了？点击登陆</Link> </div> </div>);
+          <Link to="/signin">已经有账号了？点击登陆</Link> </div> </div>);
   }
 }
 

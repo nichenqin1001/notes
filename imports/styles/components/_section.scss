@@ -1,8 +1,16 @@
 .section {
   background-color: #fff;
   border: 1px solid $gray;
-  padding: $space*2 $space;
+  padding: $space;
   margin: $space;
   flex: 1;
-  min-height: 50vh;
+  min-height: 80vh;
+  @at-root {
+    #{&}__header {
+      padding: 1rem;
+      border-bottom: 1px solid $gray;
+      margin-bottom: 20px;
+    }
+    #{&}__content {}
+  }
 }

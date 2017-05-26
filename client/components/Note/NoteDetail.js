@@ -19,8 +19,7 @@ class NoteDetail extends Component {
       <div className="grid">
         <div className="section">
           <button onClick={() => history.goBack()} className="button">返回</button>
-
-          <p>{note.title || '没有标题'}</p>
+          <p className="section__header">{note.title || '没有标题'}</p>
           <p>{note.body || '没有内容'}</p>
         </div>
         <NoteEditor note={note} />
