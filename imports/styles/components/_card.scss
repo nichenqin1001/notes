@@ -16,6 +16,11 @@
     @at-root {
       #{&}__header {
         font-weight: 700;
+        font-size: 2rem;
+        line-height: 2rem;
+      }
+      #{&}__subheader {
+        font-weight: 300;
         font-size: 1.2rem;
         line-height: 1.2rem;
       }

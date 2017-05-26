@@ -19,7 +19,7 @@ class NoteEditor extends Component {
 
   render() {
     return (
-      <div>
+      <div className="editor">
         <input type="text" defaultValue={this.props.note.title} onChange={this.handleTitleEdit.bind(this)} />
         <textarea defaultValue={this.props.note.body} onChange={this.handleBodyEdit.bind(this)}></textarea>
         <button onClick={this.deleteNote.bind(this)}>Delete Note</button>

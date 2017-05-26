@@ -9,17 +9,20 @@ import Loader from '../Common/Loader';
 
 class NoteDetail extends Component {
   render() {
-    const { note, history, loading, noteExists } = this.props;
+    const { note, loading, history, noteExists } = this.props;
 
     if (loading) return <Loader />;
 
-    if (!loading && !noteExists) return <button onClick={history.goBack()} className="button">返回</button>;
+    if (!loading && !noteExists) return <button onClick={() => history.goBack()} className="button">返回</button>;
 
     return (
-      <div classname="section">
-        <button onClick={() => history.goBack()} className="button">返回</button>
-        <p>{note.title || '没有标题'}</p>
-        <p>{note.body || '没有内容'}</p>
+      <div className="grid">
+        <div className="section">
+          <button onClick={() => history.goBack()} className="button">返回</button>
+
+          <p>{note.title || '没有标题'}</p>
+          <p>{note.body || '没有内容'}</p>
+        </div>
         <NoteEditor note={note} />
       </div>
     );

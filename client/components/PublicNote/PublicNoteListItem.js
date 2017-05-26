@@ -5,23 +5,25 @@ import { Link, withRouter } from 'react-router-dom';
 
 class PublicNoteListItem extends Component {
   render() {
-    const { note, match } = this.props;
+    const { note, match }
+      = this.props;
     return (
       <div className="card">
-        <Link to={`${match.path}/${note._id}`}>
-          <h3>{note.title || '未命名笔记'}</h3>
-          <p>{moment(note.createAt).format('YYYY-MM-DD')}</p>
-          <p>{note.body || '没有内容'} </p>
+        <Link to={`${match.path}/${note._id}`} >
+          <h3 className="card__header">
+            {note.title || '未命名笔记'}
+          </h3>
+          <p> {moment(note.createAt).format('YYYY-MM-DD')}</p>
+          <p> {note.body || '没有内容'}</p>
         </Link>
-      </div>
-    );
+      </div>);
   }
 }
 
 PublicNoteListItem.propTypes = {
   note: PropTypes.object.isRequired
-};
+}
 
+  ;
 PublicNoteListItem = withRouter(PublicNoteListItem);
-
 export default PublicNoteListItem;

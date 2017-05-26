@@ -7,9 +7,11 @@
   cursor: pointer;
   font-size: $base-font-size;
   line-height: 1.2;
-  padding: 1rem;
+  padding: 0.5rem 0.7rem;
+  margin-bottom: .5rem;
   text-transform: uppercase;
   transition: all .2s ease;
+  text-align: center;
   @at-root {
     #{&}__basic {
       background-color: transparent;

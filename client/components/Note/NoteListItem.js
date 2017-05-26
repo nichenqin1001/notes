@@ -8,11 +8,11 @@ class NoteListItem extends Component {
     const { note, match } = this.props;
     return (
       <div className="card">
-        <h3>{note.title || '未命名笔记'}</h3>
+        <h3 className="card__header">{note.title || '未命名笔记'}</h3>
         <p>{moment(note.createAt).format('YYYY-MM-DD')}</p>
         <p>{note.body || '没有内容'} </p>
         <Link className="button" to={`${match.path}/${note._id}`}>查看详情</Link>
-        <button onClick={() => Meteor.call('notes.remove', note)}>删除笔记</button>
+        <button className="button button__secondary" onClick={() => Meteor.call('notes.remove', note)}>删除笔记</button>
       </div>
     );
   }
