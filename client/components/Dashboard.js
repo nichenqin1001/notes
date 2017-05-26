@@ -8,7 +8,6 @@ import NoteDetail from './Note/NoteDetail';
 class Dashboard extends Component {
   render() {
     const { match } = this.props;
-    console.log(match);
 
     return (
       <div>
