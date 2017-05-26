@@ -1,7 +1,10 @@
 // colors
-$brand-primary: #397ab1;
+$brand-primary: #EB984E;
 $gray: #ddd;
 $light-gray: #f9f9f9;
+// body
+$body-bg: #fafafa;
+$body-default-color: #333;
 // layout
 $space: 1.4rem;
 $base-font-size: 1.6rem;
@@ -19,3 +22,7 @@ $header-bg: $brand-primary;
 // item
 $item-bg: $light-gray;
 $item-border: $gray;
+// card
+$card-width: 290px;
+$card-bg: white;
+$card-border-color: $gray;

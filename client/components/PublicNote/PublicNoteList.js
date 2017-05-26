@@ -16,7 +16,7 @@ class PublicNoteList extends Component {
     if (!loading && !noteExists) return <NoteListEmptyItem />;
 
     return (
-      <div>
+      <div className="cards">
         {notes.map(note => <PublicNoteListItem key={note._id} note={note} />)}
       </div>
     );

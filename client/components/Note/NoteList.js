@@ -28,7 +28,9 @@ class NoteList extends Component {
       <div>
         <AddNote />
         <h1>笔记列表</h1>
-        {notes.map(note => <NoteListItem key={note._id} note={note} />)}
+        <div className="cards">
+          {notes.map(note => <NoteListItem key={note._id} note={note} />)}
+        </div>
       </div>
     );
   }

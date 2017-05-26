@@ -7,7 +7,7 @@ class NoteListItem extends Component {
   render() {
     const { note, match } = this.props;
     return (
-      <div>
+      <div className="card">
         <h3>{note.title || '未命名笔记'}</h3>
         <p>{moment(note.createAt).format('YYYY-MM-DD')}</p>
         <p>{note.body || '没有内容'} </p>

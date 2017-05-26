@@ -1,1 +1,25 @@
-.card {}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0.875rem 0.5rem;
+  .card {
+    font-size: 1rem;
+    position: relative;
+    flex-direction: column;
+    width: $card-width;
+    background: $card-bg;
+    display: flex;
+    margin: 0.875rem 0.5rem;
+    padding: 1rem;
+    border: 1px solid $card-border-color;
+    border-radius: 5px;
+    @at-root {
+      #{&}__header {
+        font-weight: 700;
+        font-size: 1.2rem;
+        line-height: 1.2rem;
+      }
+      #{&}__content {}
+    }
+  }
+}

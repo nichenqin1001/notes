@@ -15,7 +15,7 @@ class PublicNoteDetail extends Component {
     if (!loading && !noteExists) return <button onClick={history.goBack()} className="button">返回</button>;
 
     return (
-      <div>
+      <div className="section">
         <button onClick={() => history.goBack()} className="button">返回</button>
         <p>{note.title || '没有标题'}</p>
         <p>{note.body || '没有内容'}</p>

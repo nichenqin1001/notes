@@ -9,15 +9,15 @@ class PublicNoteHeader extends Component {
     if (this.props.isAuthenticated) {
       return (
         <div>
-          <button onClick={() => history.replace('/notes')} className="button">我的</button>
-          <button onClick={() => Accounts.logout()} className="button">登出</button>
+          <button onClick={() => history.replace('/notes')} className="button button__link-text">我的</button>
+          <button onClick={() => Accounts.logout()} className="button button__link-text">登出</button>
         </div>
       );
     } else {
       return (
         <div>
-          <button onClick={() => history.replace('/signin')} className="button">登录</button>
-          <button onClick={() => history.replace('/signup')} className="button">注册</button>
+          <button onClick={() => history.replace('/signin')} className="button button__link-text">登录</button>
+          <button onClick={() => history.replace('/signup')} className="button button__link-text">注册</button>
         </div>
       );
     }
@@ -27,7 +27,7 @@ class PublicNoteHeader extends Component {
     return (
       <div className="header">
         <div className="header__container">
-          <Link to="/" className="header__brand">{this.props.title}</Link>
+          <Link to="/public" className="header__brand">{this.props.title}</Link>
           {this.renderAuthButtons()}
         </div>
       </div>
