@@ -4,19 +4,20 @@ import { createContainer } from 'meteor/react-meteor-data';
 
 class PublicNoteHeader extends Component {
   renderAuthButtons() {
-    console.log(this.props);
+    const { history } = this.props;
+
     if (this.props.isAuthenticated) {
       return (
         <div>
-          <button onClick={() => this.props.history.replace('/notes')} className="button">我的</button>
+          <button onClick={() => history.replace('/notes')} className="button">我的</button>
           <button onClick={() => Accounts.logout()} className="button">登出</button>
         </div>
       );
     } else {
       return (
         <div>
-          <button onClick={() => this.props.history.replace('/signin')} className="button">登录</button>
-          <button onClick={() => this.props.history.replace('/signup')} className="button">注册</button>
+          <button onClick={() => history.replace('/signin')} className="button">登录</button>
+          <button onClick={() => history.replace('/signup')} className="button">注册</button>
         </div>
       );
     }

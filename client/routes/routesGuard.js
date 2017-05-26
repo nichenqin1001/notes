@@ -27,11 +27,11 @@ export const requireAuth = ComposedComponent => {
 export const autoRedirectWithAuth = ComposedComponent => {
   class AutoRedirect extends Component {
     componentWillMount() {
-      if (this.props.isAuthenticated) this.props.history.push('/');
+      if (this.props.isAuthenticated) this.props.history.push('/public');
     }
 
     componentWillUpdate(nextProps) {
-      if (nextProps.isAuthenticated) this.props.history.push('/');
+      if (nextProps.isAuthenticated) this.props.history.push('/public');
     }
 
     render() {

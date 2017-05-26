@@ -8,10 +8,11 @@ import NoteDetail from './Note/NoteDetail';
 class Dashboard extends Component {
   render() {
     const { match } = this.props;
+    console.log(match);
 
     return (
       <div>
-        <Header title="Dash Board" />
+        <Header title="我的笔记" />
         <div className="page">
           <Route exact path={`${match.path}`} component={NoteList} />
           <Route exact path={`${match.path}/:id`} component={NoteDetail} />
