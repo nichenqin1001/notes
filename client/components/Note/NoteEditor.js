@@ -6,13 +6,13 @@ class NoteEditor extends Component {
   }
 
   handleBodyEdit(e) {
-    Meteor.call('notes.update', this.props.note._id, {
+    Meteor.call('notes.update', this.props.note, {
       body: e.target.value
     });
   }
 
   handleTitleEdit(e) {
-    Meteor.call('notes.update', this.props.note._id, {
+    Meteor.call('notes.update', this.props.note, {
       title: e.target.value
     });
   }

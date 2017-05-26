@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 class AddNote extends Component {
   addNote() {
-    Meteor.call('notes.insert');
+    Meteor.call('notes.insert', (err, note) => {
+      this.props.history.push(`notes/${note}`);
+    });
   }
 
   render() {
@@ -15,5 +18,7 @@ class AddNote extends Component {
     );
   }
 }
+
+AddNote = withRouter(AddNote);
 
 export default AddNote;

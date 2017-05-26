@@ -9,9 +9,11 @@ import Loader from '../Common/Loader';
 
 class NoteDetail extends Component {
   render() {
-    const { note, history, noteExists } = this.props;
+    const { note, history, loading, noteExists } = this.props;
 
-    if (!noteExists) return <Loader />;
+    if (loading) return <Loader />;
+
+    if (!loading && !noteExists) return <button onClick={history.goBack()} className="button">返回</button>;
 
     return (
       <div>

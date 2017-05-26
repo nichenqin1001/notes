@@ -9,6 +9,7 @@ Meteor.methods({
       title: '',
       body: '',
       ownerId: Meteor.userId(),
+      updatedAt: moment().valueOf(),
       createdAt: moment().valueOf()
     });
   },
@@ -19,10 +20,10 @@ Meteor.methods({
     return Notes.remove(note);
   },
 
-  'notes.update'(_id, updates) {
+  'notes.update'(note, updates) {
     if (!Meteor.userId()) throw new Meteor.Error('not authenticated');
 
-    return Notes.update(_id, { $set: { updatedAt: moment().valueOf(), ...updates } });
+    return Notes.update(note, { $set: { updatedAt: moment().valueOf(), ...updates } });
   }
 });
 

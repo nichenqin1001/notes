@@ -4,7 +4,6 @@ import { Route } from 'react-router-dom';
 import Header from './Header/Header';
 import NoteList from './Note/NoteList';
 import NoteDetail from './Note/NoteDetail';
-import NoteEditor from './Note/NoteEditor';
 
 class Dashboard extends Component {
   render() {
