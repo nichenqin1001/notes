@@ -13,7 +13,7 @@ export default () => (
   <BrowserRouter>
     <div>
       <Switch>
-        <Route path="/public" exact component={PublicNoteMain} />
+        <Route path="/public" component={PublicNoteMain} />
         <Route path="/signin" component={autoRedirectWithAuth(Signin)} />
         <Route path="/signup" component={autoRedirectWithAuth(Signup)} />
         <Route path="/notes" component={requireAuth(Dashboard)} />
