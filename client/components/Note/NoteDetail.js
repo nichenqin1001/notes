@@ -17,6 +17,7 @@ class NoteDetail extends Component {
       <div>
         <button onClick={() => history.goBack()} className="button">返回</button>
         <p>{note.title || '没有标题'}</p>
+        <p>{note.body || '没有内容'}</p>
         <NoteEditor note={note} />
       </div>
     );

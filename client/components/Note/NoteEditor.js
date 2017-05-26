@@ -5,6 +5,12 @@ class NoteEditor extends Component {
     Meteor.call('notes.remove', this.props.note);
   }
 
+  handleBodyEdit(e) {
+    Meteor.call('notes.update', this.props.note._id, {
+      body: e.target.value
+    });
+  }
+
   handleTitleEdit(e) {
     Meteor.call('notes.update', this.props.note._id, {
       title: e.target.value
@@ -12,10 +18,10 @@ class NoteEditor extends Component {
   }
 
   render() {
-
     return (
       <div>
-        <input type="text" value={this.props.note.title} onChange={this.handleTitleEdit.bind(this)} />
+        <input type="text" defaultValue={this.props.note.title} onChange={this.handleTitleEdit.bind(this)} />
+        <textarea defaultValue={this.props.note.body} onChange={this.handleBodyEdit.bind(this)}></textarea>
         <button onClick={this.deleteNote.bind(this)}>Delete Note</button>
       </div>
     );
