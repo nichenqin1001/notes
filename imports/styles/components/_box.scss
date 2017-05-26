@@ -1,5 +1,5 @@
 .box {
-  background-color: $box-view-overlay-bg;
+  background-color: fade-out($box-view-overlay-bg, 0.7);
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -11,6 +11,7 @@
     }
     #{&}__box {
       background-color: $box-view-bg;
+      border: 1px solid $box-view-border-color;
       padding: 2.4rem;
       text-align: center;
       width: 24rem;

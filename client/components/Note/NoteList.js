@@ -45,7 +45,7 @@ NoteList = createContainer(() => {
   const loading = !noteHandle.ready();
   const note = Notes.findOne();
   const noteExists = !loading && !!note;
-  const notes = noteExists ? Notes.find({}, { sort: { updatedAt: -1 } }).fetch() : [];
+  const notes = noteExists ? Notes.find({ ownerId: Meteor.userId() }, { sort: { updatedAt: -1 } }).fetch() : [];
   return { loading, noteExists, notes };
 }, NoteList);
 
