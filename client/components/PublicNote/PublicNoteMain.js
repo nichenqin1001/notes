@@ -12,10 +12,8 @@ class PublicNoteMain extends Component {
     return (
       <div>
         <Header title="不知笔记" />
-        <div className="page">
-          <Route exact path={`${match.path}`} component={PublicNoteList} />
-          <Route exact path={`${match.path}/:id`} component={PublicNoteDetail} />
-        </div>
+        <Route exact path={`${match.path}`} component={PublicNoteList} />
+        <Route exact path={`${match.path}/:id`} component={PublicNoteDetail} />
       </div>
     );
   }

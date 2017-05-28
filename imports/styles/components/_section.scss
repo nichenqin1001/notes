@@ -5,6 +5,7 @@
   margin: $space;
   flex: 1;
   min-height: 80vh;
+  width: 100%;
   @at-root {
     #{&}__header {
       padding: 1rem;

@@ -25,7 +25,7 @@ class Signin extends Component {
   render() {
     return (
       <div className="main">
-        <Header />
+        <Header title="不知笔记" />
         <div className="box">
           <h2 className="box__header">登录</h2>
           <div className="box__box">

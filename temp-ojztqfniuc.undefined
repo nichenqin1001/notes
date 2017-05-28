@@ -1,0 +1,38 @@
+yarn add classnames 
+
+yarn add v0.24.4
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+[3/4] Linking dependencies...
+[4/4] Building fresh packages...
+success Saved lockfile.
+success Saved 1 new dependency.
+└─ classnames@2.2.5
+Done in 4.82s.
+
+--------------------
+
+yarn add font-awesome 
+
+yarn add v0.24.4
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+[3/4] Linking dependencies...
+[4/4] Building fresh packages...
+success Saved lockfile.
+success Saved 1 new dependency.
+└─ font-awesome@4.7.0
+Done in 5.30s.
+
+--------------------
+
+yarn remove font-awesome
+
+yarn remove v0.24.4
+[1/2] Removing module font-awesome...
+[2/2] Regenerating lockfile and installing missing dependencies...
+success Uninstalled packages.
+Done in 17.51s.
+
+--------------------
+

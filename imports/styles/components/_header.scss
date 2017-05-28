@@ -2,6 +2,8 @@
   background: $header-bg;
   margin-bottom: 20px;
   height: 60px;
+  box-shadow: 0 0 5px 0 $light-gray;
+  transition: background .3s ease;
   @at-root {
     #{&}__container {
       display: flex;
@@ -17,5 +19,14 @@
     #{&}__form {
       margin: 0 0.5rem;
     }
+  }
+}
+
+.header.un-auth {
+  background: white;
+  transition: background .3s ease;
+  a,
+  button {
+    color: #000;
   }
 }

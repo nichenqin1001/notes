@@ -1,4 +1,6 @@
-.buttons {}
+.buttons {
+  display: flex;
+}
 
 .button {
   background-color: $button-bg;
@@ -35,8 +37,7 @@
         #{&}-text {
           background: none;
           margin: 0;
-          padding: 0;
-          text-decoration: underline;
+          padding: 0 1.2rem;
         }
       }
     }

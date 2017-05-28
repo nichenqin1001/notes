@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import classnames from 'classnames';
 import { Link, withRouter } from 'react-router-dom';
 import { createContainer } from 'meteor/react-meteor-data';
 
@@ -26,7 +27,7 @@ class Header extends Component {
 
   render() {
     return (
-      <div className="header">
+      <div className={classnames('header', { 'un-auth': !this.props.isAuthenticated })}>
         <div className="header__container">
           <Link to="/public" className="header__brand">{this.props.title}</Link>
           {this.renderAuthButtons()}
