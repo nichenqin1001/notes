@@ -28,6 +28,11 @@ a {
   text-decoration: none;
 }
 
+input {
+  margin: 1.5rem 0;
+  height: 40px;
+}
+
 input[type=email],
 input[type=password] {
   border: 1px solid #ddd;

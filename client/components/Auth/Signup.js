@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import AuthHeader from '../Header/AuthHeader';
+
 class Signup extends Component {
   constructor(props) {
     super(props);
@@ -19,18 +21,23 @@ class Signup extends Component {
   }
   render() {
     return (
-      <div className="box">
-        <div className="box__box">
-          <h1 className="box__header">注册账号</h1>
-          <form
-            className="box__form"
-            onSubmit={this.handleSubmit.bind(this)}
-            noValidate>
-            <input type="email" name="email" placeholder="电子邮件" />
-            <input type="password" name="password" placeholder="密码" />
-            <button className="button">创建账号</button>
-          </form>
-          <Link to="/signin">已经有账号了？点击登陆</Link> </div> </div>);
+      <div className="main">
+        <AuthHeader />
+        <div className="box">
+          <h2 className="box__header">注册账号</h2>
+          <div className="box__box">
+            <form
+              className="box__form"
+              onSubmit={this.handleSubmit.bind(this)}
+              noValidate>
+              <input className="form__control" type="email" name="email" placeholder="电子邮件" />
+              <input className="form__control" type="password" name="password" placeholder="密码" />
+              <button className="button form__control">创建账号</button>
+            </form>
+            <Link to="/signin">已经有账号了？点击登陆</Link> </div>
+        </div>
+      </div>
+    );
   }
 }
 
