@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 // components
-import PublicNoteHeader from '../Header/PublicNoteHeader';
+import Header from '../Header/Header';
 import PublicNoteList from './PublicNoteList';
 import PublicNoteDetail from './PublicNoteDetail';
 
@@ -11,7 +11,7 @@ class PublicNoteMain extends Component {
 
     return (
       <div>
-        <PublicNoteHeader title="所有笔记" />
+        <Header title="不知笔记" />
         <div className="page">
           <Route exact path={`${match.path}`} component={PublicNoteList} />
           <Route exact path={`${match.path}/:id`} component={PublicNoteDetail} />

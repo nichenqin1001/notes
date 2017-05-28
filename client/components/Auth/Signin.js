@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import AuthHeader from '../Header/AuthHeader';
+import Header from '../Header/Header';
 
 class Signin extends Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class Signin extends Component {
   render() {
     return (
       <div className="main">
-        <AuthHeader />
+        <Header />
         <div className="box">
           <h2 className="box__header">登录</h2>
           <div className="box__box">

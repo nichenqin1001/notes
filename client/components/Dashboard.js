@@ -11,7 +11,7 @@ class Dashboard extends Component {
 
     return (
       <div>
-        <Header title="我的笔记" />
+        <Header title="不知笔记" />
         <div className="page">
           <Route exact path={`${match.path}`} component={NoteList} />
           <Route exact path={`${match.path}/:id`} component={NoteDetail} />

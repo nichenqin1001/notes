@@ -30,21 +30,23 @@ a {
 
 input {
   margin: 1.5rem 0;
-  height: 40px;
 }
 
 input[type=email],
 input[type=password] {
   border: 1px solid #ddd;
   font-size: $base-font-size;
-  margin-bottom: $space;
   padding: .8rem;
+}
+
+li {
+  list-style: none;
 }
 
 .container {
   max-width: $site-max-width;
 }
 
-li {
-  list-style: none;
+.ml-auto {
+  margin-left: auto !important;
 }

@@ -1,17 +1,21 @@
 .header {
   background: $header-bg;
   margin-bottom: 20px;
+  height: 60px;
   @at-root {
     #{&}__container {
       display: flex;
-      justify-content: space-between;
-      align-content: center;
+      align-items: center;
       padding: $space;
       margin: 0 auto;
       max-width: $site-max-width;
+      height: 100%;
     }
     #{&}__brand {
       color: white;
+    }
+    #{&}__form {
+      margin: 0 0.5rem;
     }
   }
 }
